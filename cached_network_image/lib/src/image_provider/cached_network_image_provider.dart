@@ -1,7 +1,7 @@
 import 'dart:async' show Future, StreamController;
 import 'dart:ui' as ui show Codec;
 
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart'
+import 'package:cached_network_image/src/image_for_wb/cache_support.dart'
     show ImageRenderMethodForWeb;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'cached_network_image_provider.dart' as image_provider;
 import 'multi_image_stream_completer.dart';
 
-import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart'
+import 'package:cached_network_image/src/image_for_wb/cache_support.dart'
     if (dart.library.io) '_image_loader.dart'
     if (dart.library.html) 'package:cached_network_image_web/cached_network_image_web.dart'
     show ImageLoader;

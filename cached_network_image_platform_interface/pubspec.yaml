@@ -2,21 +2,22 @@ name: cached_network_image_platform_interface
 description: Platform interface for CachedNetworkImage
 version: 2.0.0
 homepage: https://github.com/Baseflow/flutter_cached_network_image
-
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.3.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_cache_manager: ^3.3.0
+  flutter_cache_manager:
+    git:
+      url: https://github.com/Erchil66/flutter_cache_manager.git
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.2
-  file: ^7.0.0
+  file: ^6.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
