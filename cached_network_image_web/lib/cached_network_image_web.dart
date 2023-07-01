@@ -12,7 +12,7 @@ import 'package:cached_network_image_platform_interface'
         '/cached_network_image_platform_interface.dart'
     show ImageRenderMethodForWeb;
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart' as base;
 
 /// ImageLoader class to load images on the web platform.
 class ImageLoader implements platform.ImageLoader {
@@ -23,7 +23,7 @@ class ImageLoader implements platform.ImageLoader {
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
     DecoderCallback decode,
-    BaseCacheManager cacheManager,
+    base.BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
@@ -52,7 +52,7 @@ class ImageLoader implements platform.ImageLoader {
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
     DecoderBufferCallback decode,
-    BaseCacheManager cacheManager,
+    base.BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
@@ -83,7 +83,7 @@ class ImageLoader implements platform.ImageLoader {
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
     _FileDecoderCallback decode,
-    BaseCacheManager cacheManager,
+    base.BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
@@ -115,7 +115,7 @@ class ImageLoader implements platform.ImageLoader {
     String? cacheKey,
     StreamController<ImageChunkEvent> chunkEvents,
     _FileDecoderCallback decode,
-    BaseCacheManager cacheManager,
+    base.BaseCacheManager cacheManager,
     int? maxHeight,
     int? maxWidth,
     Map<String, String>? headers,
@@ -125,13 +125,13 @@ class ImageLoader implements platform.ImageLoader {
     try {
       await for (var result in cacheManager.getFileStream(url,
           withProgress: true, headers: headers)) {
-        if (result is DownloadProgress) {
+        if (result is base.DownloadProgress) {
           chunkEvents.add(ImageChunkEvent(
             cumulativeBytesLoaded: result.downloaded,
             expectedTotalBytes: result.totalSize,
           ));
         }
-        if (result is FileInfo) {
+        if (result is base.FileInfo) {
           var file = result.file;
           var bytes = await file.readAsBytes();
           var decoded = await decode(bytes);
